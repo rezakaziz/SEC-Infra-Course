@@ -1,0 +1,58 @@
+# -------------------------------
+# Python
+# -------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# -------------------------------
+# Virtual Environments
+# -------------------------------
+venv/
+.env/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# -------------------------------
+# MkDocs
+# -------------------------------
+site/
+
+# -------------------------------
+# IDE / Editors
+# -------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# -------------------------------
+# OS-specific
+# -------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------------------
+# Logs / Cache
+# -------------------------------
+*.log
+*.pot
+__pycache__/
+.cache/
+pytest_cache/
+.mypy_cache/
+.pytest_cache/
+
