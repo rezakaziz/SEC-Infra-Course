@@ -1,0 +1,879 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Vulnérabilités des systèmes d’exploitation : élévation de privilèges - Sécurité des infrastructures logicielles et matérielles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vulnerabilites-des-systemes-dexploitation-elevation-de-privileges" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-header__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sécurité des infrastructures logicielles et matérielles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vulnérabilités des systèmes d’exploitation : élévation de privilèges
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-nav__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sécurité des infrastructures logicielles et matérielles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quizz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QCM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-decouverte-de-lenvironnement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Découverte de l'environnement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-utilisation-normale-de-lapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Utilisation normale de l'application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-analyse-de-la-vulnerabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : Analyse de la vulnérabilité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-exploitation-de-la-vulnerabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 4 : Exploitation de la vulnérabilité
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-analyse-de-limpact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 5 : Analyse de l'impact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-6-remediation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 6 : Remédiation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-7-synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 7 : Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vulnerabilites-des-systemes-dexploitation-elevation-de-privileges">Vulnérabilités des systèmes d’exploitation : élévation de privilèges</h1>
+<p><a href="vm-sec-tp2.ova">⬇️ Télécharger la machine virtuelle (vm-sec-tp2.ova)</a></p>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Une entreprise met à disposition de ses employés une application interne permettant de consulter leur dossier RH.</p>
+<p>Cette application s'exécute avec des privilèges élevés afin d'accéder aux données stockées dans un répertoire protégé.</p>
+<p>Suite à plusieurs signalements, l'équipe sécurité suspecte qu'un utilisateur puisse accéder à des informations qui ne lui sont pas destinées.</p>
+<p>Votre mission consiste à analyser le fonctionnement de l'application, identifier la vulnérabilité présente et proposer les mesures correctives appropriées.</p>
+</div>
+<hr />
+<h2 id="exercice-1-decouverte-de-lenvironnement">Exercice 1 : Découverte de l'environnement</h2>
+<p>Avant d'analyser la vulnérabilité, il est nécessaire de comprendre l'environnement dans lequel l'application s'exécute.</p>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Connectez-vous avec le compte utilisateur fourni :</p>
+<div class="highlight"><pre><span></span><code>id
+whoami
+</code></pre></div>
+<p>Quel est votre niveau de privilège ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Examinez les permissions du programme :</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/usr/local/bin/consultation
+</code></pre></div>
+<p>Quel est le propriétaire du programme ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Recherchez les programmes disposant du bit SUID :</p>
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/<span class="w"> </span>-perm<span class="w"> </span>-4000<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
+<p>Quel est le rôle du mécanisme SUID ?</p>
+</div>
+<hr />
+<h2 id="exercice-2-utilisation-normale-de-lapplication">Exercice 2 : Utilisation normale de l'application</h2>
+<p>L'application permet normalement de consulter les dossiers RH des employés.</p>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Exécutez la commande suivante :</p>
+<div class="highlight"><pre><span></span><code>consultation<span class="w"> </span>employe1
+</code></pre></div>
+<p>Quel est le résultat obtenu ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Consultez plusieurs dossiers disponibles.</p>
+<p>Quel semble être le fonctionnement de l'application ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Déterminez dans quel répertoire les informations sont stockées.</p>
+</div>
+<hr />
+<h2 id="exercice-3-analyse-de-la-vulnerabilite">Exercice 3 : Analyse de la vulnérabilité</h2>
+<p>L'application construit dynamiquement le chemin du fichier à consulter à partir du paramètre fourni par l'utilisateur.</p>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Testez différents paramètres afin de comprendre comment le programme construit le chemin d'accès aux fichiers.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Essayez d'accéder à un fichier situé en dehors du répertoire RH.</p>
+<p>Par exemple :</p>
+<div class="highlight"><pre><span></span><code>consultation<span class="w"> </span>../../../etc/passwd
+</code></pre></div>
+<p>Le programme empêche-t-il cet accès ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Identifiez la vulnérabilité exploitée.</p>
+<p>Indiquez :</p>
+<ul>
+<li>son nom ;</li>
+<li>son principe ;</li>
+<li>ses conséquences potentielles.</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-4-exploitation-de-la-vulnerabilite">Exercice 4 : Exploitation de la vulnérabilité</h2>
+<p>Le répertoire suivant contient des documents confidentiels :</p>
+<div class="highlight"><pre><span></span><code>/home/admin/confidentiel/
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Utilisez la vulnérabilité identifiée afin d'accéder à un document appartenant à l'administrateur.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Pourquoi cet accès n'est-il normalement pas autorisé ?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Expliquez pourquoi cette situation constitue une élévation de privilèges.</p>
+</div>
+<hr />
+<h2 id="exercice-5-analyse-de-limpact">Exercice 5 : Analyse de l'impact</h2>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Complétez le tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Réponse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vulnérabilité exploitée</td>
+<td></td>
+</tr>
+<tr>
+<td>Ressource compromise</td>
+<td></td>
+</tr>
+<tr>
+<td>Privilège obtenu</td>
+<td></td>
+</tr>
+<tr>
+<td>Impact potentiel</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Quels types d'informations un attaquant pourrait-il rechercher dans un système compromis ?</p>
+</div>
+<hr />
+<h2 id="exercice-6-remediation">Exercice 6 : Remédiation</h2>
+<p>L'équipe sécurité souhaite corriger la vulnérabilité.</p>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Proposez une méthode permettant de limiter l'accès uniquement aux dossiers RH autorisés.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Le programme a-t-il réellement besoin de privilèges élevés ?</p>
+<p>Justifiez votre réponse.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Quelles mesures complémentaires pourraient être mises en œuvre ?</p>
+<p>Parmi les mécanismes étudiés ou à venir :</p>
+<ul>
+<li>PAM ;</li>
+<li>ACL ;</li>
+<li>SELinux ;</li>
+<li>AppArmor ;</li>
+<li>journalisation.</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-7-synthese">Exercice 7 : Synthèse</h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Rédigez une courte synthèse répondant aux questions suivantes :</p>
+<ul>
+<li>Quelle vulnérabilité a été exploitée ?</li>
+<li>Comment a-t-elle permis un accès non autorisé ?</li>
+<li>Quels risques présente-t-elle pour l'entreprise ?</li>
+<li>Quelles mesures permettraient d'éviter ce type d'incident ?</li>
+</ul>
+</div>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cette séance a illustré les conséquences d'une mauvaise gestion des privilèges dans un système d'exploitation.</p>
+<p>Dans la prochaine séance, nous étudierons les mécanismes d'authentification sous Linux et la manière dont PAM permet de renforcer la sécurité des accès aux ressources du système.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

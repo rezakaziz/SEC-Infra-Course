@@ -1,0 +1,1013 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="cours/01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Sécurité des infrastructures logicielles et matérielles</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#securite-des-infrastructures-logicielles-et-materielles" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Sécurité des infrastructures logicielles et matérielles" class="md-header__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sécurité des infrastructures logicielles et matérielles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Accueil
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Sécurité des infrastructures logicielles et matérielles" class="md-nav__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sécurité des infrastructures logicielles et matérielles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objectifs pédagogiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-des-cours-et-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 Planning des cours et TP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environnement-de-travaux-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🖥️ Environnement de travaux pratiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🖥️ Environnement de travaux pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machine-virtuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machine virtuelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalites-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Modalités d'évaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Modalités d&#39;évaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quiz-de-seance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz de séance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travaux-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travaux pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criteres-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critères d'évaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-06
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cours/08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-08
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quizz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QCM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs-pedagogiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Objectifs pédagogiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-des-cours-et-tp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📅 Planning des cours et TP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environnement-de-travaux-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🖥️ Environnement de travaux pratiques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🖥️ Environnement de travaux pratiques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#machine-virtuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machine virtuelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modalites-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 Modalités d'évaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Modalités d&#39;évaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quiz-de-seance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quiz de séance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travaux-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travaux pratiques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criteres-devaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critères d'évaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="securite-des-infrastructures-logicielles-et-materielles">🔐 Sécurité des infrastructures logicielles et matérielles</h1>
+<p>Ce module présente les mécanismes fondamentaux de sécurité des systèmes d’exploitation Linux et des plateformes logicielles. Il aborde la protection des données, les vulnérabilités des systèmes, les attaques informatiques, l’authentification, le contrôle d’accès, le confinement des applications et les stratégies de défense permettant de sécuriser une infrastructure informatique.</p>
+<p>Les travaux pratiques sont réalisés sur une machine virtuelle Linux utilisée tout au long du module afin de mettre progressivement en œuvre les mécanismes étudiés.</p>
+<hr />
+<h2 id="objectifs-pedagogiques">🎯 Objectifs pédagogiques</h2>
+<p>À l’issue de ce module, l’étudiant sera capable de :</p>
+<ul>
+<li>Identifier les données sensibles d'un système d'exploitation ;</li>
+<li>Comprendre les principales vulnérabilités des systèmes Linux ;</li>
+<li>Reconnaître les principales catégories d'attaques informatiques ;</li>
+<li>Mettre en œuvre des politiques d'authentification sous Linux ;</li>
+<li>Configurer des mécanismes de contrôle d'accès et de confinement ;</li>
+<li>Appliquer les principes de défense en profondeur ;</li>
+<li>Sécuriser les principaux services d'un serveur Linux ;</li>
+<li>Comprendre l'impact des vulnérabilités applicatives sur la sécurité d'un système ;</li>
+<li>Participer à la sécurisation d'une plateforme logicielle hébergée sous Linux.</li>
+</ul>
+<hr />
+<h2 id="planning-des-cours-et-tp">📅 Planning des cours et TP</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Séance</th>
+<th style="text-align: left;">Cours</th>
+<th style="text-align: left;">TP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>01</strong></td>
+<td style="text-align: left;"><strong>Protection des données et sécurité de l'information dans les systèmes d'exploitation</strong> : confidentialité, intégrité, disponibilité, données sensibles, menaces sur les données et mécanismes de protection fournis par le système d'exploitation</td>
+<td style="text-align: left;"><strong>Protection des données dans un système Linux</strong> : identification des données sensibles, analyse des permissions, vérification de l'intégrité des fichiers et mise en œuvre de mécanismes de sauvegarde</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>02</strong></td>
+<td style="text-align: left;"><strong>Vulnérabilités des systèmes d’exploitation</strong> : notion de vulnérabilité, erreurs de configuration, divulgation d'informations, traversée de répertoires, élévation de privilèges et gestion des vulnérabilités</td>
+<td style="text-align: left;"><strong>Exploitation d'une vulnérabilité de divulgation de fichiers</strong> : analyse d'une application vulnérable, accès à des données sensibles, identification des causes et proposition de mesures correctives</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>03</strong></td>
+<td style="text-align: left;"><strong>Typologie des attaques logicielles et matérielles</strong> : virus, vers, chevaux de Troie, ransomwares, rootkits, attaques par exploitation de vulnérabilités et attaques matérielles</td>
+<td style="text-align: left;"><strong>Analyse d'un incident de sécurité</strong> : identification de fichiers suspects, analyse des processus et des connexions réseau, détermination du type d'attaque et de son impact sur le système</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>04</strong></td>
+<td style="text-align: left;"><strong>Authentification sous Linux et PAM</strong> : identification, authentification, autorisation, gestion des comptes, politiques de mots de passe, verrouillage et expiration des comptes</td>
+<td style="text-align: left;"><strong>Renforcement des politiques d'authentification</strong> : configuration de PAM, complexité des mots de passe, limitation des tentatives de connexion et expiration des mots de passe</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>05</strong></td>
+<td style="text-align: left;"><strong>Contrôle d'accès sous Linux : permissions Unix et ACL</strong> : utilisateurs, groupes, permissions, SUID, SGID, Sticky Bit, ACL et protection des ressources sensibles</td>
+<td style="text-align: left;"><strong>Gestion des permissions et protection des données sensibles</strong> : utilisation de chmod, chown, getfacl et setfacl pour contrôler l'accès aux fichiers et répertoires</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>06</strong></td>
+<td style="text-align: left;"><strong>Contrôle d'accès obligatoire et confinement des applications</strong> : limites du modèle DAC, principe du MAC, introduction à SELinux et AppArmor, protection des services et confinement des applications</td>
+<td style="text-align: left;"><strong>Mise en œuvre de politiques de confinement avec AppArmor</strong> : découverte des profils AppArmor, modes enforce et complain, protection d'une application et analyse d'un cas de confinement</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>07</strong></td>
+<td style="text-align: left;"><strong>Défense en profondeur et stratégies de protection des infrastructures</strong> : couches de sécurité, principe du moindre privilège, réduction de la surface d'attaque, sécurisation des services et gestion des mises à jour</td>
+<td style="text-align: left;"><strong>Sécurisation d'un serveur Linux et de ses services</strong> : renforcement de SSH, sécurisation d'Apache, protection des répertoires sensibles et application des principes de défense en profondeur</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>08</strong></td>
+<td style="text-align: left;"><strong>Vulnérabilités des plateformes logicielles</strong> : surface d'attaque des applications Web, injection SQL, inclusion de fichiers, injection de commandes, impacts sur le système d'exploitation et mesures de protection</td>
+<td style="text-align: left;"><strong>Analyse de vulnérabilités applicatives avec DVWA</strong> : exploitation contrôlée de SQL Injection, File Inclusion et Command Injection, analyse des impacts et identification des contre-mesures</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="environnement-de-travaux-pratiques">🖥️ Environnement de travaux pratiques</h2>
+<h3 id="machine-virtuelle">Machine virtuelle</h3>
+<div class="highlight"><pre><span></span><code>Debian 12
+Apache
+PHP
+SSH
+ACL
+AppArmor
+DVWA
+</code></pre></div>
+<p>Cette machine virtuelle est utilisée durant l'ensemble du module afin de mettre progressivement en œuvre les différents mécanismes de sécurité étudiés.</p>
+<p>Les travaux pratiques couvrent notamment :</p>
+<ul>
+<li>la protection des données ;</li>
+<li>l'exploitation de vulnérabilités ;</li>
+<li>l'authentification avec PAM ;</li>
+<li>le contrôle d'accès avec les permissions Unix et les ACL ;</li>
+<li>le confinement d'applications avec AppArmor ;</li>
+<li>la sécurisation des services Linux ;</li>
+<li>l'analyse de vulnérabilités applicatives avec DVWA.</li>
+</ul>
+<p>SELinux est présenté durant le cours comme exemple de mécanisme de contrôle d'accès obligatoire utilisé dans les distributions de la famille Red Hat, mais n'est pas utilisé dans les travaux pratiques.</p>
+<hr />
+<h2 id="modalites-devaluation">📝 Modalités d'évaluation</h2>
+<p>L'évaluation du module repose exclusivement sur le contrôle continu.</p>
+<table>
+<thead>
+<tr>
+<th>Évaluation</th>
+<th style="text-align: right;">Pondération</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quiz de séance (8 quiz de 15 minutes)</td>
+<td style="text-align: right;">40 %</td>
+</tr>
+<tr>
+<td>Travaux pratiques (comptes rendus)</td>
+<td style="text-align: right;">60 %</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quiz-de-seance">Quiz de séance</h3>
+<p>À chaque séance, un quiz de 15 minutes permet de vérifier l'acquisition des notions abordées dans le cours précédent.</p>
+<p>Les questions sont sous format de QCM.</p>
+<h3 id="travaux-pratiques">Travaux pratiques</h3>
+<p>Les travaux pratiques permettent d'évaluer la capacité de l'étudiant à :</p>
+<ul>
+<li>mettre en œuvre les mécanismes de sécurité étudiés ;</li>
+<li>analyser une configuration système ;</li>
+<li>identifier des vulnérabilités ;</li>
+<li>appliquer des mesures de protection ;</li>
+<li>justifier les choix réalisés lors de la sécurisation d'un système Linux.</li>
+</ul>
+<h3 id="criteres-devaluation">Critères d'évaluation</h3>
+<p>Les évaluations prennent en compte :</p>
+<ul>
+<li>la compréhension des concepts de sécurité ;</li>
+<li>la maîtrise des outils et mécanismes Linux étudiés ;</li>
+<li>la qualité de l'analyse ;</li>
+<li>la pertinence des solutions proposées ;</li>
+<li>l'autonomie dans la réalisation des travaux pratiques.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
