@@ -10,18 +10,18 @@ Les QCMs doivent être complétés à la fin de la séance. Chaque QCM a une dur
 
 ---
 
-## Séance 2 – Vulnérabilités des systèmes d'exploitation
+## Séance 2 – Authentification, contrôle d’accès et défense en profondeur
 
 👉 **[Accéder au quiz](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=tLwjs1htJU-Hv2Nmw9aJr9nr9bFxBhpLlq61gR3TtE9UOVEwWERYRDRSWk0zWkY0RjBDTVA3TTY4NS4u)**
 
 ---
 
-## Séance 3 – Typologie des attaques logicielles et matérielles
+## Séance 3 – Sécurité des applications Web : attaques côté client
 
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_03)**
+👉 **[Accéder au quiz]()**
 
 ---
 
-## Séance 4 – Authentification sous Linux et PAM
+## Séance 4 – Sécurité des applications Web : attaques côté serveur
 
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_04)**
+👉 **[Accéder au quiz]()**
