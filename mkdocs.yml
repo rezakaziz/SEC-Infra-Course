@@ -28,9 +28,9 @@ nav:
       - Séance-07: cours/07.md
       - Séance-08: cours/08.md
   - QCM: quizz.md
-  #- Travaux Pratiques:
-  #    - TP-01: tp/tp01.md
-  #    - TP-02: tp/tp02.md
+  - Travaux Pratiques:
+      - TP-01: tp/tp01.md
+      - TP-02: tp/tp02.md
   #    - TP-03: tp/tp03.md
   #    - TP-04: tp/tp04.md
   #    - TP-05: tp/tp05.md

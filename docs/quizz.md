@@ -4,9 +4,9 @@ Les QCMs doivent être complétés à la fin de la séance. Chaque QCM a une dur
 
 ---
 
-## Séance 1 – Protection des données et sécurité de l'information
+## Séance 1 – Principes fondamentaux de la sécurité et menaces sur les systèmes Linux
 
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_01)**
+👉 **[Accéder au quiz](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=tLwjs1htJU-Hv2Nmw9aJr9nr9bFxBhpLlq61gR3TtE9UN0NKNlZQVzlSOFVYS0tERERBUDJPUzE0NC4u)**
 
 ---
 
@@ -25,27 +25,3 @@ Les QCMs doivent être complétés à la fin de la séance. Chaque QCM a une dur
 ## Séance 4 – Authentification sous Linux et PAM
 
 👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_04)**
-
----
-
-## Séance 5 – Contrôle d'accès sous Linux
-
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_05)**
-
----
-
-## Séance 6 – Contrôle d'accès obligatoire et confinement
-
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_06)**
-
----
-
-## Séance 7 – Défense en profondeur
-
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_07)**
-
----
-
-## Séance 8 – Vulnérabilités des plateformes logicielles
-
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_08)**
