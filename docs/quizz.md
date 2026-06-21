@@ -12,7 +12,7 @@ Les QCMs doivent être complétés à la fin de la séance. Chaque QCM a une dur
 
 ## Séance 2 – Vulnérabilités des systèmes d'exploitation
 
-👉 **[Accéder au quiz](https://forms.gle/QUIZ_SEANCE_02)**
+👉 **[Accéder au quiz](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=tLwjs1htJU-Hv2Nmw9aJr9nr9bFxBhpLlq61gR3TtE9UOVEwWERYRDRSWk0zWkY0RjBDTVA3TTY4NS4u)**
 
 ---
 
