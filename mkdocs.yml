@@ -20,9 +20,9 @@ nav:
   - Accueil: index.md
   - Cours:
       - Séance-01: cours/01.pdf
-      - Séance-02: cours/02.pdf
-      - Séance-03: cours/03.pdf
-      - Séance-04: cours/04.pdf
+      - Séance-02: cours/02.md
+      - Séance-03: cours/03.md
+      - Séance-04: cours/04.md
   - QCM: quizz.md
   - Travaux Pratiques:
       - TP-01: tp/tp01.md
