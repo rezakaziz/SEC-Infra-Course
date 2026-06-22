@@ -18,10 +18,10 @@ Les QCMs doivent être complétés à la fin de la séance. Chaque QCM a une dur
 
 ## Séance 3 – Sécurité des applications Web : attaques côté client
 
-👉 **[Accéder au quiz]()**
+👉 **[Accéder au quiz](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=tLwjs1htJU-Hv2Nmw9aJr9nr9bFxBhpLlq61gR3TtE9URU9WUERIQVJNTUVKT0RNVFo4SzE1T08wMC4u)**
 
 ---
 
 ## Séance 4 – Sécurité des applications Web : attaques côté serveur
 
-👉 **[Accéder au quiz]()**
+👉 **[Accéder au quiz](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=tLwjs1htJU-Hv2Nmw9aJr9nr9bFxBhpLlq61gR3TtE9UNktWRks5N1JKUDk2V1hEU0dYU004S0VaNS4u)**
