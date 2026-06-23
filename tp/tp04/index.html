@@ -1,0 +1,1514 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../tp03/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>TP-04 - Sécurité des infrastructures logicielles et matérielles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp-attaques-server-side-avec-dvwa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-header__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sécurité des infrastructures logicielles et matérielles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP-04
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-nav__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sécurité des infrastructures logicielles et matérielles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/01.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/02.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/03.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/04.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quizz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QCM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux Pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux Pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verification-de-lacces-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l'accès à DVWA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vérification de l&#39;accès à DVWA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verification-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de la configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexion-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connexion à DVWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verification-de-lacces-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l'accès à DVWA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vérification de l&#39;accès à DVWA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verification-de-la-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de la configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexion-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connexion à DVWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp-attaques-server-side-avec-dvwa">TP — Attaques Server-Side avec DVWA</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Les applications Web modernes reposent sur une architecture composée d'un navigateur, d'un serveur applicatif et d'une base de données.</p>
+<p>Comme vu en cours, les vulnérabilités côté serveur (Server-Side) apparaissent lorsque les données fournies par l'utilisateur sont utilisées sans validation suffisante ou lorsque les contrôles de sécurité sont mal implémentés.</p>
+<p>Dans ce TP, vous utiliserez l'application <strong>DVWA (Damn Vulnerable Web Application)</strong> afin d'observer et d'analyser plusieurs vulnérabilités étudiées en cours :</p>
+<ul>
+<li>SQL Injection ;</li>
+<li>Command Injection ;</li>
+<li>File Inclusion ;</li>
+<li>File Upload.</li>
+</ul>
+<p>L'objectif n'est pas d'apprendre à attaquer des systèmes réels mais de comprendre les mécanismes exploités par les attaquants afin de mieux les sécuriser.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Objectifs</p>
+<p>À l'issue de ce TP, vous serez capable de :</p>
+<ul>
+<li>Identifier une vulnérabilité SQL Injection ;</li>
+<li>Comprendre le fonctionnement d'une Command Injection ;</li>
+<li>Analyser une vulnérabilité de File Inclusion ;</li>
+<li>Évaluer les risques liés aux fonctionnalités d'upload ;</li>
+<li>Identifier les composants serveur ciblés ;</li>
+<li>Comprendre les impacts potentiels sur les données et l'infrastructure ;</li>
+<li>Proposer des contre-mesures adaptées.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Toutes les manipulations doivent être réalisées uniquement sur l'environnement de TP fourni.</p>
+<p>Les vulnérabilités observées dans DVWA sont volontairement présentes afin de faciliter l'apprentissage.</p>
+<p>Toute utilisation en dehors du cadre pédagogique est interdite.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Compte rendu</p>
+<p>Un compte rendu individuel est attendu à la fin de la séance.</p>
+<p>Pour chaque exercice, vous devrez fournir :</p>
+<ul>
+<li>les manipulations réalisées ;</li>
+<li>les captures d'écran demandées ;</li>
+<li>les réponses aux questions ;</li>
+<li>les conclusions de sécurité.</li>
+</ul>
+</div>
+<hr />
+<h2 id="verification-de-lacces-a-dvwa">Vérification de l'accès à DVWA</h2>
+<h3 id="verification-de-la-configuration">Vérification de la configuration</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Vérifiez que l'application DVWA est accessible depuis votre navigateur.</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Élément vérifié</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page d'accueil accessible</td>
+<td></td>
+</tr>
+<tr>
+<td>Formulaire de connexion visible</td>
+<td></td>
+</tr>
+<tr>
+<td>Erreur observée</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="connexion-a-dvwa">Connexion à DVWA</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Connectez-vous avec les identifiants fournis par l'enseignant.</p>
+<p>Configurez ensuite le niveau de sécurité :</p>
+<div class="highlight"><pre><span></span><code>DVWA Security
+</code></pre></div>
+<p>Sélectionnez :</p>
+<div class="highlight"><pre><span></span><code>Low
+</code></pre></div>
+<p>Réalisez une capture d'écran montrant :</p>
+<ul>
+<li>la connexion réussie ;</li>
+<li>le niveau de sécurité sélectionné.</li>
+</ul>
+</div>
+<hr />
+<h1 id="exercice-1-sql-injection">Exercice 1 : SQL Injection</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Une SQL Injection apparaît lorsqu'une entrée utilisateur est intégrée dans une requête SQL sans validation appropriée.</p>
+<p>L'application transmet alors une donnée contrôlée par l'utilisateur à la base de données.</p>
+</div>
+<hr />
+<h3 id="decouverte-de-la-fonctionnalite">Découverte de la fonctionnalité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>SQL Injection
+</code></pre></div>
+<p>Réalisez plusieurs recherches à partir d'identifiants valides.</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Valeur saisie</th>
+<th>Résultat observé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="observation-du-comportement">Observation du comportement</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Réalisez plusieurs tests avec des valeurs différentes.</p>
+<p>Répondez :</p>
+<ul>
+<li>Quel paramètre semble être utilisé par la base de données ?</li>
+<li>Comment les résultats varient-ils selon les entrées ?</li>
+<li>Quels indices suggèrent une vulnérabilité SQL ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse-de-la-reponse">Analyse de la réponse</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Élément observé</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paramètre vulnérable</td>
+<td></td>
+</tr>
+<tr>
+<td>Type de donnée attendue</td>
+<td></td>
+</tr>
+<tr>
+<td>Informations affichées</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-de-securite">Analyse de sécurité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Répondez :</p>
+<ul>
+<li>Pourquoi cette vulnérabilité est-elle considérée comme une attaque Server-Side ?</li>
+<li>Quel composant est directement ciblé ?</li>
+<li>Quels types de données pourraient être compromis ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse-du-risque">Analyse du risque</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Actif exposé</th>
+<th>Impact potentiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Données utilisateurs</td>
+<td></td>
+</tr>
+<tr>
+<td>Comptes administrateurs</td>
+<td></td>
+</tr>
+<tr>
+<td>Informations métier</td>
+<td></td>
+</tr>
+<tr>
+<td>Structure de la base</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="contre-mesures">Contre-mesures</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 6</p>
+<p>Proposez au moins trois mécanismes permettant de prévenir les SQL Injections.</p>
+<table>
+<thead>
+<tr>
+<th>Contre-mesure</th>
+<th>Principe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h1 id="exercice-2-command-injection">Exercice 2 : Command Injection</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Une Command Injection apparaît lorsqu'une application transmet une entrée utilisateur à une commande système exécutée sur le serveur.</p>
+<p>Dans certains cas, cette vulnérabilité peut conduire à une exécution de code arbitraire.</p>
+</div>
+<hr />
+<h3 id="decouverte-de-la-fonctionnalite_1">Découverte de la fonctionnalité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>Command Injection
+</code></pre></div>
+<p>Décrivez le fonctionnement normal de la fonctionnalité.</p>
+</div>
+<hr />
+<h3 id="observation-du-traitement">Observation du traitement</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Réalisez plusieurs tests avec des valeurs légitimes.</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Entrée fournie</th>
+<th>Résultat observé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-technique">Analyse technique</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Répondez :</p>
+<ul>
+<li>Quelle commande système semble être exécutée ?</li>
+<li>Pourquoi cette commande est-elle exécutée côté serveur ?</li>
+<li>Quels éléments montrent que le système d'exploitation est impliqué ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse-des-impacts">Analyse des impacts</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Ressource potentiellement accessible</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fichiers système</td>
+<td></td>
+</tr>
+<tr>
+<td>Configuration serveur</td>
+<td></td>
+</tr>
+<tr>
+<td>Base de données</td>
+<td></td>
+</tr>
+<tr>
+<td>Réseau interne</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-de-securite_1">Analyse de sécurité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Répondez :</p>
+<ul>
+<li>Pourquoi cette vulnérabilité est-elle plus critique qu'une SQL Injection ?</li>
+<li>Quels actifs critiques du serveur pourraient être compromis ?</li>
+<li>Quelles seraient les conséquences d'une compromission complète du serveur ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="contre-mesures_1">Contre-mesures</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 6</p>
+<p>Proposez au moins trois mécanismes permettant de limiter les risques liés aux Command Injections.</p>
+<table>
+<thead>
+<tr>
+<th>Contre-mesure</th>
+<th>Principe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h1 id="exercice-3-file-inclusion">Exercice 3 : File Inclusion</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Une vulnérabilité de File Inclusion apparaît lorsqu'un utilisateur peut influencer le fichier chargé par l'application.</p>
+<p>L'application lit alors un fichier présent sur le serveur à partir d'un paramètre contrôlé par l'utilisateur.</p>
+</div>
+<hr />
+<h3 id="analyse-de-la-fonctionnalite">Analyse de la fonctionnalité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>File Inclusion
+</code></pre></div>
+<p>Décrivez le fonctionnement normal de la page.</p>
+</div>
+<hr />
+<h3 id="analyse-de-lurl">Analyse de l'URL</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Observez l'URL utilisée par l'application.</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Élément observé</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paramètre utilisé</td>
+<td></td>
+</tr>
+<tr>
+<td>Fichier chargé</td>
+<td></td>
+</tr>
+<tr>
+<td>Répertoire apparent</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="comprehension-du-mecanisme">Compréhension du mécanisme</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Répondez :</p>
+<ul>
+<li>Comment l'application choisit-elle le fichier à afficher ?</li>
+<li>Le nom du fichier semble-t-il contrôlé par l'utilisateur ?</li>
+<li>Quels indices montrent que le serveur lit un fichier local ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse-des-risques">Analyse des risques</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Type de fichier exposé</th>
+<th>Risque associé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fichier de configuration</td>
+<td></td>
+</tr>
+<tr>
+<td>Journal applicatif</td>
+<td></td>
+</tr>
+<tr>
+<td>Code source</td>
+<td></td>
+</tr>
+<tr>
+<td>Fichier système</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-de-securite_2">Analyse de sécurité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Répondez :</p>
+<ul>
+<li>Pourquoi cette vulnérabilité est-elle classée parmi les attaques Server-Side ?</li>
+<li>Quels types de données pourraient être exposés ?</li>
+<li>Quels impacts pourrait avoir la divulgation d'un fichier de configuration ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="contre-mesures_2">Contre-mesures</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 6</p>
+<p>Proposez au moins trois mécanismes permettant de limiter les attaques de File Inclusion.</p>
+<table>
+<thead>
+<tr>
+<th>Contre-mesure</th>
+<th>Principe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h1 id="exercice-4-file-upload">Exercice 4 : File Upload</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Les fonctionnalités d'upload permettent aux utilisateurs de téléverser des fichiers vers le serveur.</p>
+<p>Chaque fichier reçu doit être considéré comme potentiellement malveillant.</p>
+</div>
+<hr />
+<h3 id="analyse-de-la-fonctionnalite_1">Analyse de la fonctionnalité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>File Upload
+</code></pre></div>
+<p>Décrivez :</p>
+<ul>
+<li>le type de fichiers acceptés ;</li>
+<li>le comportement observé après l'envoi ;</li>
+<li>les informations affichées par l'application.</li>
+</ul>
+</div>
+<hr />
+<h3 id="observation-du-stockage">Observation du stockage</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Après l'envoi d'un fichier :</p>
+<ul>
+<li>identifiez son emplacement ;</li>
+<li>observez l'URL associée.</li>
+</ul>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Élément observé</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Répertoire d'upload</td>
+<td></td>
+</tr>
+<tr>
+<td>URL du fichier</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-du-mecanisme">Analyse du mécanisme</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Répondez :</p>
+<ul>
+<li>Où le fichier est-il stocké ?</li>
+<li>Le fichier est-il accessible depuis le navigateur ?</li>
+<li>Pourquoi cette fonctionnalité représente-t-elle une surface d'attaque importante ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse-des-risques_1">Analyse des risques</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Risque</th>
+<th>Impact potentiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exécution de code</td>
+<td></td>
+</tr>
+<tr>
+<td>Divulgation de données</td>
+<td></td>
+</tr>
+<tr>
+<td>Compromission du serveur</td>
+<td></td>
+</tr>
+<tr>
+<td>Propagation vers le réseau interne</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-de-securite_3">Analyse de sécurité</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Répondez :</p>
+<ul>
+<li>Pourquoi un fichier envoyé par un utilisateur doit-il être considéré comme non fiable ?</li>
+<li>Quels risques représente un fichier contenant du code exécutable ?</li>
+<li>Pourquoi cette vulnérabilité est-elle considérée comme une attaque Server-Side ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="contre-mesures_3">Contre-mesures</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 6</p>
+<p>Complétez :</p>
+<table>
+<thead>
+<tr>
+<th>Contre-mesure</th>
+<th>Principe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h1 id="synthese">Synthèse</h1>
+<div class="admonition question">
+<p class="admonition-title">Question finale</p>
+<p>Complétez le tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Vulnérabilité</th>
+<th>Composant ciblé</th>
+<th>Impact principal</th>
+<th>Contre-mesure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL Injection</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Command Injection</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>File Inclusion</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>File Upload</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Les attaques Server-Side ciblent les composants exécutés sur le serveur.</li>
+<li>Les SQL Injections ciblent les bases de données.</li>
+<li>Les Command Injections ciblent le système d'exploitation.</li>
+<li>Les vulnérabilités de File Inclusion permettent l'accès à des fichiers non prévus.</li>
+<li>Les fonctionnalités d'upload doivent considérer tout fichier comme potentiellement malveillant.</li>
+<li>Le principe fondamental reste : ne jamais faire confiance aux entrées utilisateur.</li>
+</ul>
+</div>
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Remise du compte rendu</p>
+<p>À la fin de la séance :</p>
+<ul>
+<li>Vérifiez que toutes les questions sont complétées ;</li>
+<li>Ajoutez les captures d'écran demandées ;</li>
+<li>Exportez votre compte rendu au format PDF.</li>
+</ul>
+<p><strong>Adresse de destination :</strong></p>
+<div class="highlight"><pre><span></span><code>rezak.aziz@lecnam.net
+</code></pre></div>
+<p><strong>Objet du mail :</strong></p>
+<div class="highlight"><pre><span></span><code>[TP DVWA Server-Side] Nom Prénom
+</code></pre></div>
+<p><strong>Formats acceptés :</strong></p>
+<ul>
+<li>PDF</li>
+</ul>
+<p>Le compte rendu doit être transmis avant la fin de la séance.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

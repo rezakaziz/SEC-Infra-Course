@@ -1,0 +1,2233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../tp02/">
+      
+      
+        <link rel="next" href="../tp04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>TP-03 - Sécurité des infrastructures logicielles et matérielles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp-decouverte-des-vulnerabilites-web-avec-dvwa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-header__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sécurité des infrastructures logicielles et matérielles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP-03
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-nav__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sécurité des infrastructures logicielles et matérielles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/01.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/02.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/03.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/04.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quizz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QCM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux Pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux Pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verification-de-lacces-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l'accès à DVWA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vérification de l&#39;accès à DVWA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verification-de-la-configuration-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de la configuration VirtualBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-du-serveur-web-dans-la-machine-virtuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification du serveur Web dans la machine virtuelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification locale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acces-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accès à DVWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexion-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connexion à DVWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-sessions-web-et-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Sessions Web et cookies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 1 : Sessions Web et cookies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-des-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation des cookies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-des-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse des sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification pratique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse réseau
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-reflected-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Reflected XSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 2 : Reflected XSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification-du-comportement-vulnerable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identification du comportement vulnérable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-dune-execution-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche d'une exécution de code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-de-lurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse de l'URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-stored-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : Stored XSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 3 : Stored XSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-du-stockage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation du stockage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-dom-based-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 4 : DOM-Based XSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 4 : DOM-Based XSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-du-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation du DOM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspection-du-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspection du code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-csp-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 5 : CSP Bypass
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 5 : CSP Bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analyse-de-la-politique-csp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse de la politique CSP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-des-en-tetes-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation des en-têtes HTTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-du-comportement-du-navigateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse du comportement du navigateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspection-des-ressources-autorisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspection des ressources autorisées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contre-mesures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contre-mesures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-6-comparaison-xss-et-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 6 : Comparaison XSS et CSRF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verification-de-lacces-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de l'accès à DVWA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vérification de l&#39;accès à DVWA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verification-de-la-configuration-virtualbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification de la configuration VirtualBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-du-serveur-web-dans-la-machine-virtuelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification du serveur Web dans la machine virtuelle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-locale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification locale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acces-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accès à DVWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexion-a-dvwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connexion à DVWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-sessions-web-et-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Sessions Web et cookies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 1 : Sessions Web et cookies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-des-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation des cookies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-des-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse des sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification pratique
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-reseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse réseau
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-reflected-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Reflected XSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 2 : Reflected XSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification-du-comportement-vulnerable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identification du comportement vulnérable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recherche-dune-execution-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recherche d'une exécution de code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-de-lurl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse de l'URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-stored-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : Stored XSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 3 : Stored XSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-du-stockage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation du stockage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-dom-based-xss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 4 : DOM-Based XSS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 4 : DOM-Based XSS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observation-du-dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation du DOM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspection-du-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspection du code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-csp-bypass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 5 : CSP Bypass
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 5 : CSP Bypass">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analyse-de-la-politique-csp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse de la politique CSP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observation-des-en-tetes-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observation des en-têtes HTTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse-du-comportement-du-navigateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse du comportement du navigateur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inspection-des-ressources-autorisees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspection des ressources autorisées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyse_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contre-mesures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contre-mesures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-6-comparaison-xss-et-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 6 : Comparaison XSS et CSRF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp-decouverte-des-vulnerabilites-web-avec-dvwa">TP — Découverte des vulnérabilités Web avec DVWA</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Les applications Web modernes reposent sur un navigateur, un serveur Web et des mécanismes d'authentification permettant de maintenir une session utilisateur.</p>
+<p>Comme vu en cours, plusieurs vulnérabilités peuvent apparaître lorsque les données fournies par l'utilisateur ne sont pas correctement contrôlées.</p>
+<p>Dans ce TP, vous utiliserez l'application <strong>DVWA (Damn Vulnerable Web Application)</strong> afin d'observer et d'analyser plusieurs vulnérabilités étudiées en cours :</p>
+<ul>
+<li>sessions Web ;</li>
+<li>cookies ;</li>
+<li>Reflected XSS ;</li>
+<li>Stored XSS ;</li>
+<li>DOM-Based XSS ;</li>
+<li>CSRF.</li>
+</ul>
+<p>L'objectif n'est pas d'apprendre à attaquer des systèmes réels mais de comprendre les mécanismes exploités par les attaquants afin de mieux les sécuriser.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Objectifs</p>
+<p>À l'issue de ce TP, vous serez capable de :</p>
+<ul>
+<li>Vérifier l'accessibilité d'une application Web dans une machine virtuelle ;</li>
+<li>Comprendre le mécanisme de redirection de ports VirtualBox ;</li>
+<li>Identifier un cookie de session ;</li>
+<li>Comprendre le fonctionnement d'une authentification Web ;</li>
+<li>Observer le comportement du navigateur face à une vulnérabilité XSS ;</li>
+<li>Différencier les trois grandes familles de XSS ;</li>
+<li>Comprendre le principe d'une attaque CSRF ;</li>
+<li>Identifier les impacts potentiels sur les utilisateurs ;</li>
+<li>Proposer des contre-mesures adaptées.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Toutes les manipulations doivent être réalisées uniquement sur l'environnement de TP fourni.</p>
+<p>Les vulnérabilités observées dans DVWA sont volontairement présentes afin de faciliter l'apprentissage.</p>
+<p>Toute utilisation en dehors du cadre pédagogique est interdite.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Compte rendu</p>
+<p>Un compte rendu individuel est attendu à la fin de la séance.</p>
+<p>Pour chaque exercice, vous devrez fournir :</p>
+<ul>
+<li>les manipulations réalisées ;</li>
+<li>les captures d'écran demandées ;</li>
+<li>les réponses aux questions ;</li>
+<li>les conclusions de sécurité.</li>
+</ul>
+<p>Le compte rendu devra être remis à la fin de la séance.</p>
+</div>
+<hr />
+<h2 id="verification-de-lacces-a-dvwa">Vérification de l'accès à DVWA</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>DVWA est installé dans la machine virtuelle fournie.</p>
+<p>Une redirection de port VirtualBox a été configurée afin de permettre l'accès à l'application depuis votre machine hôte.</p>
+</div>
+<hr />
+<h3 id="verification-de-la-configuration-virtualbox">Vérification de la configuration VirtualBox</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Vérifiez la présence de la redirection de port.</p>
+<p>Dans VirtualBox :</p>
+<div class="highlight"><pre><span></span><code>Configuration
+    ↓
+Réseau
+    ↓
+Adaptateur NAT
+    ↓
+Avancé
+    ↓
+Redirection de ports
+</code></pre></div>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Nom</th>
+<th>Protocole</th>
+<th>Port Hôte</th>
+<th>Port Invité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Quelle est l'utilité de cette redirection ?</p>
+</div>
+<hr />
+<h3 id="verification-du-serveur-web-dans-la-machine-virtuelle">Vérification du serveur Web dans la machine virtuelle</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Connectez-vous à la machine virtuelle.</p>
+<p>Vérifiez qu'un serveur Web écoute sur le port HTTP standard.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Port observé</th>
+<th>Service identifié</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Quelle commande avez-vous utilisée ?</p>
+</div>
+<hr />
+<h3 id="verification-locale">Vérification locale</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Depuis la machine virtuelle, vérifiez que l'application répond localement.</p>
+<p>Décrivez la méthode utilisée et le résultat obtenu.</p>
+</div>
+<hr />
+<h3 id="acces-a-dvwa">Accès à DVWA</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Depuis votre machine hôte, ouvrez l'application via l'adresse configurée par la redirection de port.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Élément vérifié</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page d'accueil accessible</td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>Formulaire de connexion visible</td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>Erreur observée</td>
+<td>Oui / Non</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="connexion-a-dvwa">Connexion à DVWA</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Connectez-vous à l'application avec les identifiants fournis par l'enseignant.</p>
+<p>Puis configurez le niveau de sécurité le plus faible disponible.</p>
+<p>Réalisez une capture d'écran montrant :</p>
+<ul>
+<li>votre connexion réussie ;</li>
+<li>le niveau de sécurité sélectionné.</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-1-sessions-web-et-cookies">Exercice 1 : Sessions Web et cookies</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>HTTP est un protocole sans état.</p>
+<p>Afin de reconnaître un utilisateur entre plusieurs requêtes, les applications Web utilisent généralement des sessions stockées dans des cookies.</p>
+</div>
+<hr />
+<h3 id="observation-des-cookies">Observation des cookies</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Ouvrez les outils développeur du navigateur.</p>
+<p>Localisez les cookies créés après authentification.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Cookie observé</th>
+<th>Fonction supposée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-des-sessions">Analyse des sessions</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Répondez aux questions suivantes :</p>
+<ul>
+<li>Quel cookie semble être utilisé pour maintenir la session ?</li>
+<li>Quels éléments vous permettent de l'identifier ?</li>
+<li>Pourquoi HTTP nécessite-t-il un mécanisme de session ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="verification-pratique">Vérification pratique</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Réalisez une manipulation permettant de tester le rôle du cookie de session.</p>
+<p>Décrivez :</p>
+<ul>
+<li>la manipulation réalisée ;</li>
+<li>le comportement observé ;</li>
+<li>votre conclusion.</li>
+</ul>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p>Ouvrez les outils développeur :</p>
+<div class="highlight"><pre><span></span><code>F12
+</code></pre></div>
+<p>Consultez :</p>
+<div class="highlight"><pre><span></span><code>Application → Cookies
+</code></pre></div>
+<p>ou</p>
+<div class="highlight"><pre><span></span><code>Storage → Cookies
+</code></pre></div>
+<p>Recherchez notamment :</p>
+<div class="highlight"><pre><span></span><code>PHPSESSID
+</code></pre></div>
+<p>Essayez de supprimer ce cookie puis rechargez la page.</p>
+</details>
+<hr />
+<h3 id="analyse-reseau">Analyse réseau</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>À l'aide de l'onglet Network des outils développeur :</p>
+<ul>
+<li>identifiez une requête envoyée après authentification ;</li>
+<li>observez les en-têtes HTTP ;</li>
+<li>repérez les informations liées à la session.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Élément observé</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cookie de session</td>
+<td></td>
+</tr>
+<tr>
+<td>URL appelée</td>
+<td></td>
+</tr>
+<tr>
+<td>Méthode HTTP</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2 id="exercice-2-reflected-xss">Exercice 2 : Reflected XSS</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Le Reflected XSS se produit lorsqu'une donnée contrôlée par l'utilisateur est renvoyée immédiatement dans la réponse du serveur sans validation ni encodage.</p>
+</div>
+<hr />
+<h3 id="identification-du-comportement-vulnerable">Identification du comportement vulnérable</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>XSS (Reflected)
+</code></pre></div>
+<p>Réalisez différents tests afin de déterminer si les données saisies sont réaffichées dans la page.</p>
+<p>Décrivez vos observations.</p>
+</div>
+<hr />
+<h3 id="recherche-dune-execution-de-code">Recherche d'une exécution de code</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Réalisez un test permettant de vérifier si un contenu fourni par l'utilisateur peut être interprété comme du code JavaScript.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Test réalisé</th>
+<th>Résultat obtenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse">Analyse</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Répondez :</p>
+<ul>
+<li>Pourquoi cette vulnérabilité est-elle appelée Reflected XSS ?</li>
+<li>Le code est-il exécuté côté client ou côté serveur ?</li>
+<li>Quel est le rôle du navigateur dans cette attaque ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse-de-lurl">Analyse de l'URL</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Observez l'URL générée après votre test.</p>
+<p>Répondez :</p>
+<ul>
+<li>Où semble se trouver la donnée injectée ?</li>
+<li>Quel paramètre paraît vulnérable ?</li>
+<li>Pourquoi un attaquant pourrait-il utiliser un lien spécialement construit ?</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-3-stored-xss">Exercice 3 : Stored XSS</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Le Stored XSS se produit lorsqu'un contenu malveillant est enregistré durablement dans l'application.</p>
+</div>
+<hr />
+<h3 id="observation-du-stockage">Observation du stockage</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>XSS (Stored)
+</code></pre></div>
+<p>Réalisez plusieurs tests afin d'observer comment les données sont conservées.</p>
+<p>Décrivez vos observations.</p>
+</div>
+<hr />
+<h3 id="persistance">Persistance</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Vérifiez si le contenu saisi est toujours présent :</p>
+<ul>
+<li>après actualisation ;</li>
+<li>après reconnexion ;</li>
+<li>après ouverture depuis un autre navigateur ou une autre session.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Actualisation</td>
+<td></td>
+</tr>
+<tr>
+<td>Reconnexion</td>
+<td></td>
+</tr>
+<tr>
+<td>Nouvelle session</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse_1">Analyse</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Répondez :</p>
+<ul>
+<li>Où semble être stockée la donnée ?</li>
+<li>Pourquoi cette vulnérabilité est-elle plus dangereuse qu'un Reflected XSS ?</li>
+<li>Quels utilisateurs peuvent être impactés ?</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-4-dom-based-xss">Exercice 4 : DOM-Based XSS</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Dans une vulnérabilité DOM-Based XSS, la vulnérabilité se situe entièrement dans le navigateur.</p>
+<p>Le code JavaScript de la page manipule une donnée contrôlée par l'utilisateur et l'insère dans le DOM sans protection suffisante.</p>
+</div>
+<hr />
+<h3 id="observation-du-dom">Observation du DOM</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>XSS (DOM)
+</code></pre></div>
+<p>Analysez le comportement de la page lorsque certaines parties de l'URL sont modifiées.</p>
+</div>
+<hr />
+<h3 id="inspection-du-code">Inspection du code</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>À l'aide des outils développeur :</p>
+<ul>
+<li>observez le code source ;</li>
+<li>observez le DOM généré ;</li>
+<li>recherchez l'origine de la donnée affichée.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Élément observé</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source de la donnée</td>
+<td></td>
+</tr>
+<tr>
+<td>Emplacement dans le DOM</td>
+<td></td>
+</tr>
+<tr>
+<td>Script concerné</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse_2">Analyse</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Répondez :</p>
+<ul>
+<li>La donnée passe-t-elle par le serveur ?</li>
+<li>Où se situe réellement la vulnérabilité ?</li>
+<li>Pourquoi ce type de vulnérabilité peut-il être difficile à détecter ?</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-5-csp-bypass">Exercice 5 : CSP Bypass</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>La <strong>Content Security Policy (CSP)</strong> est un mécanisme de sécurité implémenté par les navigateurs afin de limiter l'exécution de contenus potentiellement dangereux.</p>
+<p>Une CSP permet notamment de contrôler :</p>
+<ul>
+<li>les scripts JavaScript autorisés ;</li>
+<li>les feuilles de style ;</li>
+<li>les images ;</li>
+<li>les ressources externes chargées par la page.</li>
+</ul>
+<p>Lorsqu'une politique CSP est mal configurée, il peut être possible de contourner certaines protections et d'exécuter du code malgré les restrictions prévues.</p>
+<p>Cet exercice vise à observer le fonctionnement de la CSP et à comprendre les conséquences d'une configuration insuffisante.</p>
+</div>
+<hr />
+<h3 id="analyse-de-la-politique-csp">Analyse de la politique CSP</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Accédez au module :</p>
+<div class="highlight"><pre><span></span><code>CSP Bypass
+</code></pre></div>
+<p>Observez le comportement général de la page.</p>
+<p>Répondez :</p>
+<ul>
+<li>Quel est l'objectif apparent de cette fonctionnalité ?</li>
+<li>Quels éléments de sécurité semblent être mis en œuvre ?</li>
+<li>Quel message ou indication suggère la présence d'une Content Security Policy ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="observation-des-en-tetes-http">Observation des en-têtes HTTP</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>À l'aide des outils développeur du navigateur :</p>
+<div class="highlight"><pre><span></span><code>F12
+    ↓
+Network
+    ↓
+Sélectionner la requête principale
+    ↓
+Headers
+</code></pre></div>
+<p>Recherchez les informations relatives à la CSP.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Élément observé</th>
+<th>Valeur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>En-tête CSP présent</td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>Directive observée</td>
+<td></td>
+</tr>
+<tr>
+<td>Domaine(s) autorisé(s)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="analyse-du-comportement-du-navigateur">Analyse du comportement du navigateur</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Réalisez différents essais afin d'observer les restrictions imposées par la CSP.</p>
+<p>Décrivez :</p>
+<ul>
+<li>les actions réalisées ;</li>
+<li>les messages affichés dans la console du navigateur ;</li>
+<li>les comportements autorisés ;</li>
+<li>les comportements bloqués.</li>
+</ul>
+</div>
+<hr />
+<h3 id="inspection-des-ressources-autorisees">Inspection des ressources autorisées</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Analysez la politique observée.</p>
+<p>Répondez :</p>
+<ul>
+<li>Quelles ressources semblent explicitement autorisées ?</li>
+<li>Existe-t-il des domaines externes approuvés ?</li>
+<li>Pourquoi une liste blanche trop large peut-elle poser un problème de sécurité ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="analyse_3">Analyse</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Répondez :</p>
+<ul>
+<li>Quel est le rôle principal d'une Content Security Policy ?</li>
+<li>Pourquoi la CSP est-elle souvent utilisée comme protection complémentaire contre les attaques XSS ?</li>
+<li>Une CSP mal configurée protège-t-elle efficacement une application ? Justifiez.</li>
+</ul>
+</div>
+<hr />
+<h3 id="contre-mesures">Contre-mesures</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 6</p>
+<p>Proposez au moins trois bonnes pratiques pour renforcer l'efficacité d'une CSP.</p>
+<table>
+<thead>
+<tr>
+<th>Bonne pratique</th>
+<th>Principe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2 id="exercice-6-comparaison-xss-et-csrf">Exercice 6 : Comparaison XSS et CSRF</h2>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Complétez le tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>XSS</th>
+<th>CSRF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objectif</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Élément exploité</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nécessite l'exécution de JavaScript</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nécessite une session active</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Impact principal</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2 id="synthese">Synthèse</h2>
+<div class="admonition question">
+<p class="admonition-title">Question finale</p>
+<p>Complétez le tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Vulnérabilité</th>
+<th>Description</th>
+<th>Impact principal</th>
+<th>Contre-mesure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reflected XSS</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Stored XSS</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DOM-Based XSS</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CSRF</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Une session Web repose généralement sur un cookie.</li>
+<li>Le navigateur joue un rôle central dans la sécurité des applications Web.</li>
+<li>Les vulnérabilités XSS permettent l'exécution de code dans le navigateur de la victime.</li>
+<li>Les attaques CSRF exploitent la confiance accordée à une session authentifiée.</li>
+<li>La validation des entrées, l'encodage des sorties et la protection des sessions sont essentiels pour sécuriser une application Web.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Remise du compte rendu</p>
+<p>À la fin de la séance :</p>
+<ul>
+<li>Vérifiez que toutes les questions sont complétées ;</li>
+<li>Ajoutez les captures d'écran demandées ;</li>
+<li>Exportez votre compte rendu au format PDF.</li>
+</ul>
+<p><strong>Adresse de destination :</strong></p>
+<div class="highlight"><pre><span></span><code>rezak.aziz@lecnam.net
+</code></pre></div>
+<p><strong>Objet du mail :</strong></p>
+<div class="highlight"><pre><span></span><code>[TP DVWA U Paris] Nom Prénom
+</code></pre></div>
+<p><strong>Formats acceptés :</strong></p>
+<ul>
+<li>PDF</li>
+</ul>
+<p>Le compte rendu doit être transmis avant la fin de la séance.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

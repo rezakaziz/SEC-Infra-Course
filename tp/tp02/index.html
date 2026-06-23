@@ -1,0 +1,2326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../tp01/">
+      
+      
+        <link rel="next" href="../tp03/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>TP-02 - Sécurité des infrastructures logicielles et matérielles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tp2-correction-et-durcissement-dune-machine-linux-vulnerable" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-header__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sécurité des infrastructures logicielles et matérielles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TP-02
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sécurité des infrastructures logicielles et matérielles" class="md-nav__button md-logo" aria-label="Sécurité des infrastructures logicielles et matérielles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sécurité des infrastructures logicielles et matérielles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cours
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cours
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/01.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/02.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/03.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cours/04.pdf" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Séance-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quizz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QCM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travaux Pratiques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Travaux Pratiques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-01
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-02
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-tableau-des-vulnerabilites-a-corriger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Tableau des vulnérabilités à corriger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 1 : Tableau des vulnérabilités à corriger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableau-des-vulnerabilites-confirmees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau des vulnérabilités confirmées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableau-de-suivi-des-corrections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau de suivi des corrections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-corrections-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Corrections de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 2 : Corrections de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correction-des-utilisateurs-et-groupes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction des utilisateurs et groupes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-des-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction des permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-de-sudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction de sudo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduction-de-la-surface-dattaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réduction de la surface d'attaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-executee-avec-trop-de-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application exécutée avec trop de privilèges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-acl-droits-dacces-avances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : ACL — droits d'accès avancés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 3 : ACL — droits d&#39;accès avancés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decouverte-des-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Découverte des ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-des-acl-dangereuses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction des ACL dangereuses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus-acl-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus — ACL par défaut
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-linux-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 4 : Linux Capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 4 : Linux Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification-des-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identification des capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suppression-dune-capability-dangereuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suppression d'une capability dangereuse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-mac-et-confinement-dapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 5 : MAC et confinement d'application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 5 : MAC et confinement d&#39;application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etat-dapparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État d'AppArmor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-du-confinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activation du confinement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-03
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tp04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TP-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-1-tableau-des-vulnerabilites-a-corriger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 1 : Tableau des vulnérabilités à corriger
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 1 : Tableau des vulnérabilités à corriger">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableau-des-vulnerabilites-confirmees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau des vulnérabilités confirmées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tableau-de-suivi-des-corrections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableau de suivi des corrections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-2-corrections-de-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 2 : Corrections de base
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 2 : Corrections de base">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correction-des-utilisateurs-et-groupes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction des utilisateurs et groupes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-des-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction des permissions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-de-sudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction de sudo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduction-de-la-surface-dattaque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réduction de la surface d'attaque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-executee-avec-trop-de-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application exécutée avec trop de privilèges
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-3-acl-droits-dacces-avances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 3 : ACL — droits d'accès avancés
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 3 : ACL — droits d&#39;accès avancés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decouverte-des-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Découverte des ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correction-des-acl-dangereuses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correction des ACL dangereuses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus-acl-par-defaut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus — ACL par défaut
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-4-linux-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 4 : Linux Capabilities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 4 : Linux Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identification-des-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identification des capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suppression-dune-capability-dangereuse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suppression d'une capability dangereuse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercice-5-mac-et-confinement-dapplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercice 5 : MAC et confinement d'application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercice 5 : MAC et confinement d&#39;application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etat-dapparmor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        État d'AppArmor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activation-du-confinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activation du confinement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tp2-correction-et-durcissement-dune-machine-linux-vulnerable">TP2 — Correction et durcissement d'une machine Linux vulnérable</h1>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Ce TP fait suite au <strong>TP1 — Audit guidé d'une machine Linux vulnérable</strong>.</p>
+<p>Dans le TP1, vous avez identifié plusieurs vulnérabilités visibles à l'aide des mécanismes Linux de base :</p>
+<ul>
+<li>utilisateurs ;</li>
+<li>groupes ;</li>
+<li>fichiers sensibles ;</li>
+<li>permissions ;</li>
+<li><code>sudo</code> ;</li>
+<li>services ;</li>
+<li>principe du moindre privilège.</li>
+</ul>
+<p>Dans ce TP2, vous devez maintenant corriger les vulnérabilités identifiées et compléter l'analyse avec des mécanismes de sécurité plus avancés :</p>
+<ul>
+<li>ACL ;</li>
+<li>Linux Capabilities ;</li>
+<li>MAC avec AppArmor ;</li>
+<li>confinement d'application.</li>
+</ul>
+<p>Vous travaillez toujours sur la machine de l'entreprise fictive <strong>NovaTech</strong>.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Objectifs</p>
+<p>À l'issue de ce TP, vous serez capable de :</p>
+<ul>
+<li>Corriger des permissions dangereuses ;</li>
+<li>Réduire les privilèges excessifs ;</li>
+<li>Corriger une configuration <code>sudo</code> trop permissive ;</li>
+<li>Utiliser les ACL pour analyser des droits d'accès avancés ;</li>
+<li>Identifier et supprimer des capabilities dangereuses ;</li>
+<li>Vérifier l'état d'un mécanisme MAC ;</li>
+<li>Activer ou renforcer le confinement d'une application ;</li>
+<li>Vérifier qu'une correction est réellement effective ;</li>
+<li>Produire une synthèse avant/après.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Contrairement au TP1, vous devez maintenant <strong>corriger</strong> les vulnérabilités.</p>
+<p>Chaque correction doit être justifiée et vérifiée.</p>
+<p>Pour chaque vulnérabilité corrigée, votre compte rendu devra contenir :</p>
+<ul>
+<li>la vulnérabilité initiale ;</li>
+<li>la commande de correction ;</li>
+<li>la commande de vérification ;</li>
+<li>le résultat obtenu ;</li>
+<li>une courte explication de l'amélioration de sécurité.</li>
+</ul>
+<p>Dans le TP1, vous disposiez uniquement d'un accès au compte <code>student</code> afin de réaliser un audit sans modifier le système.</p>
+<p>Dans le TP2, votre rôle est celui d'un administrateur chargé de corriger les vulnérabilités identifiées.</p>
+<p>Vous devez donc utiliser le compte <code>root</code> avec le mot de passe <code>change_me_securely</code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Compte rendu</p>
+<p>Un compte rendu individuel est attendu à l'issue du TP.</p>
+<p>Celui-ci devra inclure :</p>
+<ul>
+<li>les vulnérabilités corrigées ;</li>
+<li>les commandes utilisées ;</li>
+<li>les preuves avant/après ;</li>
+<li>les vérifications réalisées ;</li>
+<li>les risques résiduels éventuels.</li>
+</ul>
+<p><strong>Le compte rendu devra être transmis à la fin de la séance.</strong></p>
+<p><strong>Adresse de destination :</strong></p>
+<p>rezak.aziz@lecnam.net</p>
+<p><strong>Objet du mail :</strong></p>
+<p><code>[TP2 U Paris Sécurité] Nom Prénom</code></p>
+<p><strong>Formats acceptés :</strong></p>
+<ul>
+<li>PDF</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-1-tableau-des-vulnerabilites-a-corriger">Exercice 1 : Tableau des vulnérabilités à corriger</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Dans le TP1, vous avez réalisé un audit guidé de la machine Linux vulnérable.</p>
+<p>Dans ce TP2, vous disposez directement de la liste des vulnérabilités confirmées par l'audit.</p>
+<p>Votre mission consiste maintenant à :</p>
+<ul>
+<li>corriger chaque vulnérabilité obligatoire ;</li>
+<li>justifier la correction appliquée ;</li>
+<li>vérifier que la correction est effective ;</li>
+<li>expliquer l'amélioration de sécurité obtenue.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Vous devez corriger les vulnérabilités dans l'ordre de priorité indiqué.</p>
+<p>Les vulnérabilités <strong>VULN-01 à VULN-10</strong> sont obligatoires.</p>
+<p>Les vulnérabilités <strong>VULN-11 à VULN-15</strong> sont des vulnérabilités avancées ou bonus. Elles permettent d'approfondir les notions d'ACL, de capabilities, de MAC et de confinement.</p>
+</div>
+<hr />
+<h3 id="tableau-des-vulnerabilites-confirmees">Tableau des vulnérabilités confirmées</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Statut</th>
+<th>Catégorie</th>
+<th>Vulnérabilité TP1 observée</th>
+<th>Preuve / chemin</th>
+<th>Sévérité</th>
+<th>Correction attendue TP2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-01</td>
+<td>Obligatoire</td>
+<td>Utilisateurs</td>
+<td>Compte de test <code>testdev</code> encore actif</td>
+<td><code>/home/testdev</code>, shell <code>/bin/bash</code></td>
+<td>Moyenne</td>
+<td>Verrouiller <code>testdev</code> et remplacer son shell par <code>/usr/sbin/nologin</code></td>
+</tr>
+<tr>
+<td>VULN-02</td>
+<td>Obligatoire</td>
+<td>Groupes</td>
+<td><code>intern</code> dispose d’un compte interactif de stagiaire</td>
+<td><code>id intern</code>, shell <code>/bin/bash</code></td>
+<td>Faible / Moyenne</td>
+<td>Vérifier ses groupes et retirer tout groupe sensible inutile</td>
+</tr>
+<tr>
+<td>VULN-03</td>
+<td>Obligatoire</td>
+<td>Permissions</td>
+<td>Répertoires de projet accessibles trop largement</td>
+<td><code>/srv/project</code>, <code>/srv/webapp</code></td>
+<td>Moyenne</td>
+<td>Restreindre les droits avec <code>chmod</code> / <code>chown</code></td>
+</tr>
+<tr>
+<td>VULN-04</td>
+<td>Obligatoire</td>
+<td>SSH / Secrets</td>
+<td>Clé privée SSH d’<code>alice</code> lisible par d’autres utilisateurs</td>
+<td><code>/home/alice/.ssh/id_rsa</code> en <code>644</code></td>
+<td>Critique</td>
+<td>Mettre <code>.ssh</code> en <code>700</code> et <code>id_rsa</code> en <code>600</code></td>
+</tr>
+<tr>
+<td>VULN-05</td>
+<td>Obligatoire</td>
+<td>Configuration</td>
+<td>Fichier de configuration contenant des secrets trop lisible</td>
+<td><code>/srv/webapp/config.ini</code> en <code>644</code></td>
+<td>Élevée</td>
+<td>Restreindre à <code>640</code> ou <code>600</code>, propriétaire/groupe adapté</td>
+</tr>
+<tr>
+<td>VULN-06</td>
+<td>Obligatoire</td>
+<td>Script sensible</td>
+<td>Script de sauvegarde modifiable par tous</td>
+<td><code>/opt/backup/backup.sh</code> en <code>777</code></td>
+<td>Élevée</td>
+<td>Mettre propriétaire correct et droits <code>750</code> ou <code>700</code></td>
+</tr>
+<tr>
+<td>VULN-07</td>
+<td>Obligatoire</td>
+<td>Sudo</td>
+<td>Règle sudo trop permissive pour <code>alice</code></td>
+<td><code>alice ALL=(ALL) NOPASSWD:ALL</code></td>
+<td>Critique</td>
+<td>Supprimer la règle ou la limiter à une commande précise</td>
+</tr>
+<tr>
+<td>VULN-08</td>
+<td>Obligatoire</td>
+<td>Services</td>
+<td>Service réseau inattendu exposé</td>
+<td><code>debug-listener</code> sur le port <code>4444</code></td>
+<td>Moyenne</td>
+<td>Arrêter et désactiver le service</td>
+</tr>
+<tr>
+<td>VULN-09</td>
+<td>Obligatoire</td>
+<td>Application</td>
+<td>WebApp exécutée avec les privilèges <code>root</code></td>
+<td>service <code>webapp.service</code>, <code>User=root</code></td>
+<td>Élevée</td>
+<td>Créer un utilisateur dédié non privilégié et modifier le service</td>
+</tr>
+<tr>
+<td>VULN-10</td>
+<td>Obligatoire</td>
+<td>Permissions</td>
+<td>Fichiers modifiables par tous dans le projet</td>
+<td><code>/srv/project/notes.txt</code> en <code>666</code>, <code>/srv/project/dev.conf</code> en <code>777</code></td>
+<td>Élevée</td>
+<td>Supprimer l’écriture pour <code>others</code>, ex. <code>chmod 640</code> ou <code>chmod 750</code></td>
+</tr>
+<tr>
+<td>VULN-11</td>
+<td>Bonus</td>
+<td>Secrets</td>
+<td>Secret en clair dans un fichier projet</td>
+<td><code>/srv/project/secret.txt</code></td>
+<td>Élevée</td>
+<td>Restreindre les droits et déplacer le secret hors du dépôt projet</td>
+</tr>
+<tr>
+<td>VULN-12</td>
+<td>Bonus</td>
+<td>Services</td>
+<td>Apache actif alors qu’il n’est pas forcément nécessaire</td>
+<td>port <code>80/tcp</code>, service <code>apache2</code></td>
+<td>Faible / Moyenne</td>
+<td>Désactiver si inutile</td>
+</tr>
+<tr>
+<td>VULN-13</td>
+<td>Bonus</td>
+<td>Comptes</td>
+<td>Compte <code>backup</code> avec shell interactif</td>
+<td><code>backup:/home/backup:/bin/bash</code></td>
+<td>Moyenne</td>
+<td>Remplacer le shell par <code>/usr/sbin/nologin</code></td>
+</tr>
+<tr>
+<td>VULN-14</td>
+<td>Bonus</td>
+<td>Permissions</td>
+<td>Secret applicatif lisible par tous</td>
+<td><code>api_token</code> dans <code>/srv/webapp/config.ini</code></td>
+<td>Élevée</td>
+<td>Limiter lecture au compte applicatif uniquement</td>
+</tr>
+<tr>
+<td>VULN-15</td>
+<td>Bonus</td>
+<td>Moindre privilège</td>
+<td>Trop de comptes humains ou techniques avec shell interactif</td>
+<td><code>alice</code>, <code>bob</code>, <code>intern</code>, <code>backup</code>, <code>testdev</code></td>
+<td>Moyenne</td>
+<td>Désactiver ou restreindre les comptes non nécessaires</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tableau-de-suivi-des-corrections">Tableau de suivi des corrections</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Complétez ce tableau au fur et à mesure de vos corrections.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Correction appliquée</th>
+<th>Commande de correction</th>
+<th>Commande de vérification</th>
+<th>Résultat après correction</th>
+<th>Corrigée ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-03</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-04</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-05</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-06</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-08</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-09</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+<tr>
+<td>VULN-15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>Oui / Non</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles pour vérifier l'état initial :</strong></p>
+<div class="highlight"><pre><span></span><code>getent<span class="w"> </span>passwd<span class="w"> </span>testdev
+groups<span class="w"> </span>intern
+
+ls<span class="w"> </span>-ld<span class="w"> </span>/home/alice
+ls<span class="w"> </span>-la<span class="w"> </span>/home/alice/.ssh
+ls<span class="w"> </span>-l<span class="w"> </span>/srv/webapp/config.ini
+ls<span class="w"> </span>-l<span class="w"> </span>/opt/backup/backup.sh
+
+sudo<span class="w"> </span>-l
+sudo<span class="w"> </span>-l<span class="w"> </span>-U<span class="w"> </span>alice
+
+ss<span class="w"> </span>-tulpen
+systemctl<span class="w"> </span>--type<span class="o">=</span>service<span class="w"> </span>--state<span class="o">=</span>running
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>webapp
+
+getfacl<span class="w"> </span>/srv/project
+getfacl<span class="w"> </span>/srv/project/*
+
+getcap<span class="w"> </span>-r<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+
+sudo<span class="w"> </span>aa-status
+systemctl<span class="w"> </span>status<span class="w"> </span>apparmor
+</code></pre></div>
+</details>
+<hr />
+<h2 id="exercice-2-corrections-de-base">Exercice 2 : Corrections de base</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Cette première étape consiste à corriger les vulnérabilités visibles avec les mécanismes Linux classiques.</p>
+<p>Vous devez appliquer le principe du moindre privilège :</p>
+<blockquote>
+<p>Un utilisateur, un fichier ou une application ne doit disposer que des droits strictement nécessaires.</p>
+</blockquote>
+</div>
+<hr />
+<h3 id="correction-des-utilisateurs-et-groupes">Correction des utilisateurs et groupes</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Corrigez les problèmes liés aux utilisateurs ou groupes.</p>
+<p>Vous devez traiter au minimum :</p>
+<ul>
+<li><code>VULN-01</code> : compte <code>testdev</code> encore actif ;</li>
+<li><code>VULN-02</code> : utilisateur <code>intern</code> dans un groupe trop privilégié.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Problème</th>
+<th>Commande de correction</th>
+<th>Commande de vérification</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-01</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VULN-02</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-L<span class="w"> </span>testdev
+sudo<span class="w"> </span>usermod<span class="w"> </span>-s<span class="w"> </span>/usr/sbin/nologin<span class="w"> </span>testdev
+
+sudo<span class="w"> </span>deluser<span class="w"> </span>intern<span class="w"> </span>developers
+
+getent<span class="w"> </span>passwd<span class="w"> </span>testdev
+groups<span class="w"> </span>intern
+</code></pre></div>
+</details>
+<hr />
+<h3 id="correction-des-permissions">Correction des permissions</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Corrigez les permissions trop permissives.</p>
+<p>Vous devez traiter au minimum :</p>
+<ul>
+<li><code>VULN-03</code> : répertoire <code>/home/alice</code> trop ouvert ;</li>
+<li><code>VULN-04</code> : clé privée SSH mal protégée ;</li>
+<li><code>VULN-05</code> : fichier <code>/srv/webapp/config.ini</code> trop ouvert ;</li>
+<li><code>VULN-06</code> : script <code>/opt/backup/backup.sh</code> modifiable.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Ressource</th>
+<th>Problème initial</th>
+<th>Correction appliquée</th>
+<th>Vérification</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-03</td>
+<td><code>/home/alice</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VULN-04</td>
+<td><code>/home/alice/.ssh/id_rsa</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VULN-05</td>
+<td><code>/srv/webapp/config.ini</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VULN-06</td>
+<td><code>/opt/backup/backup.sh</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/alice
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/alice/.ssh
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/home/alice/.ssh/id_rsa
+
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">640</span><span class="w"> </span>/srv/webapp/config.ini
+sudo<span class="w"> </span>chmod<span class="w"> </span>o-w<span class="w"> </span>/opt/backup/backup.sh
+
+ls<span class="w"> </span>-ld<span class="w"> </span>/home/alice
+ls<span class="w"> </span>-la<span class="w"> </span>/home/alice/.ssh
+ls<span class="w"> </span>-l<span class="w"> </span>/srv/webapp/config.ini
+ls<span class="w"> </span>-l<span class="w"> </span>/opt/backup/backup.sh
+</code></pre></div>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Les commandes ci-dessus sont des exemples.</p>
+<p>Vous devez les adapter aux vulnérabilités réellement observées sur votre machine.</p>
+</div>
+<hr />
+<h3 id="correction-de-sudo">Correction de sudo</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Corrigez la règle <code>sudo</code> trop permissive.</p>
+<p>Exemple de règle dangereuse :</p>
+<div class="highlight"><pre><span></span><code>alice ALL=(ALL) NOPASSWD:ALL
+</code></pre></div>
+<p>Cette règle permet à <code>alice</code> d'exécuter n'importe quelle commande avec les privilèges administrateur, sans authentification supplémentaire.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Règle dangereuse</th>
+<th>Risque</th>
+<th>Correction proposée</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-07</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>visudo
+
+sudo<span class="w"> </span>visudo<span class="w"> </span>-f<span class="w"> </span>/etc/sudoers.d/novatech
+
+sudo<span class="w"> </span>-l<span class="w"> </span>-U<span class="w"> </span>alice
+sudo<span class="w"> </span>-l
+</code></pre></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Exemple de règle plus limitée</p>
+<p>Une règle plus conforme au principe du moindre privilège pourrait autoriser uniquement une action précise :</p>
+<div class="highlight"><pre><span></span><code>alice ALL=(root) /usr/bin/systemctl restart webapp
+</code></pre></div>
+<p>Cette règle est beaucoup moins dangereuse que :</p>
+<div class="highlight"><pre><span></span><code>alice ALL=(ALL) NOPASSWD:ALL
+</code></pre></div>
+</div>
+<hr />
+<h3 id="reduction-de-la-surface-dattaque">Réduction de la surface d'attaque</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4</p>
+<p>Corrigez le problème lié au service inutile exposé.</p>
+<p>Vous devez traiter :</p>
+<ul>
+<li><code>VULN-08</code> : service réseau inutile actif.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Service</th>
+<th>Risque</th>
+<th>Commande de correction</th>
+<th>Vérification</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-08</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>ss<span class="w"> </span>-tulpen
+systemctl<span class="w"> </span>--type<span class="o">=</span>service<span class="w"> </span>--state<span class="o">=</span>running
+
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>debug-listener
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>debug-listener
+
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>--now<span class="w"> </span>debug-listener
+
+systemctl<span class="w"> </span>status<span class="w"> </span>debug-listener
+ss<span class="w"> </span>-tulpen
+</code></pre></div>
+</details>
+<hr />
+<h3 id="application-executee-avec-trop-de-privileges">Application exécutée avec trop de privilèges</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 5</p>
+<p>Analysez et corrigez le problème suivant :</p>
+<ul>
+<li><code>VULN-09</code> : application Web exécutée en <code>root</code>.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Processus / service</th>
+<th>Utilisateur initial</th>
+<th>Correction proposée</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-09</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>webapp
+systemctl<span class="w"> </span>status<span class="w"> </span>webapp
+
+sudo<span class="w"> </span>useradd<span class="w"> </span>--system<span class="w"> </span>--no-create-home<span class="w"> </span>--shell<span class="w"> </span>/usr/sbin/nologin<span class="w"> </span>webapp-user
+sudo<span class="w"> </span>systemctl<span class="w"> </span>edit<span class="w"> </span>webapp
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>webapp
+
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>webapp
+systemctl<span class="w"> </span>status<span class="w"> </span>webapp
+</code></pre></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Indication</p>
+<p>Selon la configuration de la machine, la correction peut consister à modifier le fichier de service <code>systemd</code> afin d'ajouter un utilisateur dédié :</p>
+<div class="highlight"><pre><span></span><code><span class="na">User</span><span class="o">=</span><span class="s">webapp-user</span>
+<span class="na">Group</span><span class="o">=</span><span class="s">webapp-user</span>
+</code></pre></div>
+</div>
+<hr />
+<h2 id="exercice-3-acl-droits-dacces-avances">Exercice 3 : ACL — droits d'accès avancés</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Les permissions classiques Linux reposent sur trois catégories :</p>
+<ul>
+<li>propriétaire ;</li>
+<li>groupe ;</li>
+<li>autres.</li>
+</ul>
+<p>Cependant, il existe un mécanisme plus fin : les <strong>ACL</strong>.</p>
+<p>Les ACL permettent d'accorder des droits spécifiques à un utilisateur ou à un groupe, même si ces droits ne sont pas visibles directement avec une simple lecture des permissions classiques.</p>
+</div>
+<hr />
+<h3 id="decouverte-des-acl">Découverte des ACL</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1</p>
+<p>Analysez les ACL du répertoire projet.</p>
+<p>Vous devez traiter :</p>
+<ul>
+<li><code>VULN-10</code> : ACL excessive sur <code>/srv/project</code>.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Ressource</th>
+<th>ACL observée</th>
+<th>Utilisateur/groupe concerné</th>
+<th>Droit accordé</th>
+<th>Risque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-10</td>
+<td><code>/srv/project</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>getfacl<span class="w"> </span>/srv/project
+getfacl<span class="w"> </span>/srv/project/*
+</code></pre></div>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Question 2</p>
+<p>Comparez les informations obtenues avec :</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l
+</code></pre></div>
+<p>et avec :</p>
+<div class="highlight"><pre><span></span><code>getfacl
+</code></pre></div>
+<p>Répondez aux questions suivantes :</p>
+<ul>
+<li>quelles informations supplémentaires sont visibles avec <code>getfacl</code> ?</li>
+<li>pourquoi <code>ls -l</code> peut-il être insuffisant pour auditer les droits ?</li>
+<li>quel utilisateur dispose d'un accès trop large ?</li>
+</ul>
+</div>
+<hr />
+<h3 id="correction-des-acl-dangereuses">Correction des ACL dangereuses</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3</p>
+<p>Supprimez l'ACL excessive.</p>
+<p>Exemple : si l'utilisateur <code>intern</code> dispose d'un droit d'écriture injustifié sur <code>/srv/project</code>, supprimez ce droit.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>ACL dangereuse</th>
+<th>Commande de correction</th>
+<th>Vérification</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>setfacl<span class="w"> </span>-x<span class="w"> </span>u:intern<span class="w"> </span>/srv/project
+sudo<span class="w"> </span>setfacl<span class="w"> </span>-x<span class="w"> </span>u:intern<span class="w"> </span>/srv/project/*
+
+getfacl<span class="w"> </span>/srv/project
+getfacl<span class="w"> </span>/srv/project/*
+</code></pre></div>
+</details>
+<hr />
+<h3 id="bonus-acl-par-defaut">Bonus — ACL par défaut</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 4 — Bonus</p>
+<p>Vérifiez si le répertoire <code>/srv/project</code> contient des ACL par défaut.</p>
+<p>Vous pouvez traiter :</p>
+<ul>
+<li><code>VULN-11</code> : ACL par défaut trop permissive.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Répertoire</th>
+<th>ACL par défaut observée</th>
+<th>Risque</th>
+<th>Correction proposée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-11</td>
+<td><code>/srv/project</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>getfacl<span class="w"> </span>/srv/project
+sudo<span class="w"> </span>setfacl<span class="w"> </span>-d<span class="w"> </span>-x<span class="w"> </span>u:intern<span class="w"> </span>/srv/project
+sudo<span class="w"> </span>setfacl<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span>g:developers:rx<span class="w"> </span>/srv/project
+</code></pre></div>
+<p>Une ACL par défaut est indiquée par des lignes commençant par :</p>
+<div class="highlight"><pre><span></span><code>default:
+</code></pre></div>
+</details>
+<hr />
+<h2 id="exercice-4-linux-capabilities">Exercice 4 : Linux Capabilities</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Sous Linux, le compte <code>root</code> possède tous les privilèges.</p>
+<p>Les <strong>Linux Capabilities</strong> permettent de découper certains privilèges de <code>root</code> en permissions plus petites.</p>
+<p>Cela permet à un programme de disposer uniquement du privilège dont il a besoin, sans être exécuté entièrement en tant que <code>root</code>.</p>
+<p>Cependant, une capability mal attribuée peut devenir dangereuse.</p>
+</div>
+<hr />
+<h3 id="identification-des-capabilities">Identification des capabilities</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Bonus</p>
+<p>Recherchez les fichiers disposant de capabilities sur le système.</p>
+<p>Vous pouvez traiter :</p>
+<ul>
+<li><code>VULN-12</code> : capability dangereuse sur un binaire généraliste ;</li>
+<li><code>VULN-13</code> : capability dangereuse sur un outil interne.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Fichier</th>
+<th>Capability</th>
+<th>Justification apparente</th>
+<th>Risque</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VULN-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>getcap<span class="w"> </span>-r<span class="w"> </span>/<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+getcap<span class="w"> </span>/usr/bin/ping
+getcap<span class="w"> </span>-r<span class="w"> </span>/opt<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
+</details>
+<hr />
+<h3 id="suppression-dune-capability-dangereuse">Suppression d'une capability dangereuse</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Bonus</p>
+<p>Supprimez la ou les capabilities dangereuses identifiées.</p>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Binaire</th>
+<th>Commande de correction</th>
+<th>Commande de vérification</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-12</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VULN-13</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>setcap<span class="w"> </span>-r<span class="w"> </span>/usr/bin/python3
+sudo<span class="w"> </span>setcap<span class="w"> </span>-r<span class="w"> </span>/opt/backup/helper
+
+getcap<span class="w"> </span>/usr/bin/python3
+getcap<span class="w"> </span>/opt/backup/helper
+getcap<span class="w"> </span>-r<span class="w"> </span>/opt<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</code></pre></div>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Ne supprimez pas au hasard toutes les capabilities du système.</p>
+<p>Certaines capabilities peuvent être légitimes.</p>
+<p>Votre objectif est d'identifier et corriger celles qui sont injustifiées ou dangereuses.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 3 — Bonus</p>
+<p>Répondez brièvement :</p>
+<ul>
+<li>pourquoi les capabilities peuvent-elles être plus sûres qu'un programme exécuté en <code>root</code> ?</li>
+<li>pourquoi une capability mal attribuée peut-elle être dangereuse ?</li>
+<li>pourquoi est-il dangereux d'attribuer une capability à un interpréteur comme <code>python3</code> ?</li>
+</ul>
+</div>
+<hr />
+<h2 id="exercice-5-mac-et-confinement-dapplication">Exercice 5 : MAC et confinement d'application</h2>
+<div class="admonition note">
+<p class="admonition-title">Contexte</p>
+<p>Les permissions classiques et les ACL relèvent principalement du contrôle d'accès discrétionnaire.</p>
+<p>Avec le contrôle d'accès obligatoire, ou <strong>MAC</strong> pour <em>Mandatory Access Control</em>, les accès sont limités par une politique de sécurité.</p>
+<p>Une application compromise ne doit pas pouvoir accéder librement à tout le système.</p>
+<p>Dans ce TP, nous utilisons <strong>AppArmor</strong> comme exemple de mécanisme MAC.</p>
+</div>
+<hr />
+<h3 id="etat-dapparmor">État d'AppArmor</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 1 — Bonus</p>
+<p>Vérifiez l'état d'AppArmor sur la machine.</p>
+<p>Vous pouvez traiter :</p>
+<ul>
+<li><code>VULN-14</code> : AppArmor non actif ou profil non enforcing.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AppArmor est-il actif ?</td>
+<td></td>
+</tr>
+<tr>
+<td>Nombre de profils chargés</td>
+<td></td>
+</tr>
+<tr>
+<td>Profils en mode enforce</td>
+<td></td>
+</tr>
+<tr>
+<td>Profils en mode complain</td>
+<td></td>
+</tr>
+<tr>
+<td>Application Web confinée ?</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aa-status
+systemctl<span class="w"> </span>status<span class="w"> </span>apparmor
+</code></pre></div>
+</details>
+<div class="admonition question">
+<p class="admonition-title">Question 2 — Bonus</p>
+<p>Expliquez la différence entre :</p>
+<ul>
+<li>mode <code>enforce</code> ;</li>
+<li>mode <code>complain</code>.</li>
+</ul>
+</div>
+<hr />
+<h3 id="activation-du-confinement">Activation du confinement</h3>
+<div class="admonition question">
+<p class="admonition-title">Question 3 — Bonus</p>
+<p>Recherchez si l'application Web NovaTech dispose d'un profil AppArmor.</p>
+<p>Si un profil existe mais n'est pas en mode <code>enforce</code>, activez le mode <code>enforce</code>.</p>
+<p>Vous pouvez traiter :</p>
+<ul>
+<li><code>VULN-15</code> : application Web insuffisamment confinée.</li>
+</ul>
+<p>Complétez le tableau :</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Application</th>
+<th>Profil AppArmor</th>
+<th>Mode initial</th>
+<th>Commande appliquée</th>
+<th>Mode final</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VULN-15</td>
+<td>NovaTech WebApp</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="tip">
+<summary>💡 Indices</summary>
+<p><strong>Commandes utiles :</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aa-status
+ls<span class="w"> </span>-l<span class="w"> </span>/etc/apparmor.d/
+
+sudo<span class="w"> </span>aa-enforce<span class="w"> </span>/etc/apparmor.d/webapp
+sudo<span class="w"> </span>aa-status
+</code></pre></div>
+</details>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>Si le nom exact du profil est différent, adaptez la commande.</p>
+<p>Vous pouvez lister les profils avec :</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aa-status
+ls<span class="w"> </span>/etc/apparmor.d/
+</code></pre></div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question 4 — Bonus</p>
+<p>Expliquez comment AppArmor limite l'impact d'une compromission de l'application Web.</p>
+</div>
+<hr />
+<div class="admonition success">
+<p class="admonition-title">À retenir</p>
+<ul>
+<li>Une correction doit toujours être vérifiée.</li>
+<li>Les permissions classiques ne montrent pas toujours tous les droits réels.</li>
+<li>Les ACL permettent un contrôle plus fin, mais doivent être auditées.</li>
+<li>Les capabilities réduisent le besoin d'exécuter un programme en <code>root</code>, mais peuvent être dangereuses si elles sont mal attribuées.</li>
+<li>Le MAC, avec AppArmor ou SELinux, ajoute une politique de sécurité indépendante des permissions classiques.</li>
+<li>Le confinement limite l'impact d'une application compromise.</li>
+<li>Le durcissement d'un système repose sur la défense en profondeur.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Fin du TP</p>
+<p>À la fin de la séance, vous devez transmettre votre compte rendu au format PDF.</p>
+<p><strong>Adresse de destination :</strong></p>
+<p>rezak.aziz@lecnam.net</p>
+<p><strong>Objet du mail :</strong></p>
+<p><code>[TP2 U Paris Sécurité] Nom Prénom</code></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
